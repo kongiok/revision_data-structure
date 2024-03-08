@@ -1,0 +1,111 @@
+/*
+  Colors
+*/
+/*
+  Text Sizes
+*/
+/*
+  screens
+*/
+body {
+  min-height: 100dvh;
+  background-color: #FDFDFC;
+  padding: 0;
+  margin: 0;
+}
+
+/* Reset margin top for elements */
+h1, h2, h3, h4, h5, h6,
+p, ol, ul, pre {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+ul, menu, dir {
+  list-style: none;
+}
+
+a {
+  color: #34342D;
+  text-decoration: none;
+}
+
+/* Prevent `sub` and `sup` elements from affecting line height */
+sub,
+sup {
+  line-height: 0;
+}
+
+ul ul:first-child,
+ul ol:first-child,
+ol ul:first-child,
+ol ol:first-child {
+  margin-bottom: 0;
+}
+
+img, video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 1px solid -webkit-focus-ring-color;
+  outline-offset: -1px;
+}
+
+@font-face {
+  font-family: "GenWanMin";
+  src: url("fonts/GenWanMin/GenWanMin-R.ttc") format("ttc");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "GenWanMin";
+  src: url("fonts/GenWanMin/GenWanMin-SB.ttc") format("ttc");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "GenWanMin";
+  src: url("fonts/GenWanMin/GenWanMin-L.ttc") format("ttc");
+  font-style: italic;
+}
+@font-face {
+  font-family: "LXGWKai";
+  src: url("fonts/lxgw-wenkai-tc-v1.320/LXGWWenKaiTC-Regular.ttf") format("ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "LXGWKai";
+  src: url("fonts/lxgw-wenkai-tc-v1.320/LXGWWenKaiTC-Bold.ttf") format("ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "LXGWKai";
+  src: url("fonts/lxgw-wenkai-tc-v1.320/LXGWWenKaiTC-Light.ttf") format("ttf");
+  font-weight: italic;
+}
+@font-face {
+  font-family: "MonaspaceArgon";
+  src: url("fonts/monaspace-v1.000/fonts/otf/MonaspaceArgon-Regular.otf") format("otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "MonaspaceArgon";
+  src: url("fonts/monaspace-v1.000/fonts/otf/MonaspaceArgon-SemiBold.otf") format("otf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "MonaspaceArgon";
+  src: url("fonts/monaspace-v1.000/fonts/otf/MonaspaceArgon-Italic.otf") format("otf");
+  font-weight: italic;
+}
+p {
+  font-family: "LXGWKai", "GenWanMin", "Courier New", Courier, monospace;
+}
+
+/*# sourceMappingURL=enlighten.css.map */

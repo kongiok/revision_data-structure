@@ -2,5 +2,7 @@
   "files.associations": {
     "time.h": "c"
   },
-  "asciidoc.antora.enableAntoraSupport": true
+  "markdown.styles": [
+    "./styles/enlighten.css"
+  ]
 }
