@@ -1,40 +1,82 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
-struct student
-{
-  char name[50];
-  int math, english;
-  char no[10];
-  struct student *next;
-};
-typedef struct student s_data;
-s_data *head;
-s_data *ptr;
-s_data *new_1;
+int main() {
+  int m, n, i, j, i1, j1, cnt, ind;
+  int *nu, *com;
 
-int main(){ 
-  head = (s_data *)malloc(sizeof(s_data) * 1);
-  head->next = NULL; ptr = head; int sel, num, Msum, Esum;
-  do
-  {
-    printf("1. Add 2. Exit : "); scanf("%d", &sel);
-    if (sel == 2) break;
-    new_1 = (s_data *)malloc(sizeof(s_data) * 1);
-    printf("姓名\t學號\t數學\t英文\n");
-    scanf("%s %s %d %d", new_1->name, new_1->no, &new_1->math, &new_1->english);
-    ptr->next = new_1; new_1->next = NULL; ptr = ptr->next;
-  } while (sel == 1);
-  ptr = head->next;
-  putchar('\n');
-  num = Msum=Esum=0;
-  while (ptr != NULL)
-  {
-    printf("姓名%s\t學號%s\t數學成績%d\t英文成績%d\n", ptr->name, ptr->no, ptr->math, ptr->english);
-    Msum += ptr->math; Esum += ptr->english; num++;
-    ptr = ptr->next;
+  printf("請輸入矩陣的列數(-1退出)：");
+  scanf("%d", &m);
+  printf("請輸入矩陣的行數(-1退出)：");
+  scanf("%d", &n);
+  srand(time(NULL));
+
+  while (m != -1 || n != -1) {
+    printf("請輸入要產生的隨機數數量：");
+    scanf("%d", &cnt);
+
+    nu = (int *)malloc(m * n * sizeof(int));
+    for (i = 0; i < m * n; i++)
+      nu[i] = 0;
+
+    com = (int *)malloc((cnt + 1) * 3 * sizeof(int));
+    ind = 0;
+    for (i = 0; i < (cnt + 1) * 3; i++)
+      com[i] = 0;
+    com[ind] = m;
+    ind++;
+    com[ind] = n;
+    ind++;
+    com[ind] = cnt;
+    ind++;
+
+    printf("矩陣維度和隨機數數量：\n");
+    for (i = 0; i < (cnt + 1) * 3; i += 3) {
+      printf("%d %d %5d\n", com[i], com[i + 1], com[i + 2]);
+    }
+
+    for (i = 0; i < cnt; i++) {
+      i1 = rand() % m;
+      j1 = rand() % n;
+      nu[i1 * n + j1] = rand() % 20 + 1;
+      printf("(%d,%d) 賦值 --> %d\n", i1, j1, nu[i1 * n + j1]);
+    }
+
+    printf("完整矩陣內容：\n");
+    for (i = 0; i < m; i++) {
+      for (j = 0; j < n; j++) {
+        printf("%5d\t", nu[i * n + j]);
+      }
+      printf("\n");
+    }
+
+    for (i = 0; i < m; i++) {
+      for (j = 0; j < n; j++) {
+        if (nu[i * n + j] != 0) {
+          com[ind] = i;
+          ind++;
+          com[ind] = j;
+          ind++;
+          com[ind] = nu[i * n + j];
+          ind++;
+        }
+      }
+    }
+
+    printf("非零元素及其位置：\n");
+    for (i = 0; i < (cnt + 1) * 3; i += 3) {
+      printf("%d %d %5d\n", com[i], com[i + 1], com[i + 2]);
+    }
+
+    free(nu);
+    free(com);
+
+    printf("請輸入矩陣的列數(-1退出)：");
+    scanf("%d", &m);
+    printf("請輸入矩陣的行數(-1退出)：");
+    scanf("%d", &n);
   }
-  printf("---------------------------------------\n%d %d %d\n", num, Esum, Msum);
-  printf("數學平均%.2f\t英文平均%.2f\n", (float)Msum*1.0 / num, (float)Esum*1.0 / num);
   return 0;
 }
